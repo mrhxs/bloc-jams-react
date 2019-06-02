@@ -24,17 +24,13 @@ class Album extends Component {
            <h1 id="album-title">Album - {this.state.album.title}</h1>
              <h2 className="artist">Artist - {this.state.album.artist}</h2>
              <div id="release-info">Release Info - {this.state.album.releaseInfo}</div>
-             <div id="songs">
+             <tbody id="songs">
               {
-                this.state.album.songs.map((song, index, array) => {
-                  return (
-                  <div key = {index}>
-                    {song.key} {song.title} {song.duration} 
-                  </div>
-                  )
-                })
+                this.state.album.songs.map((song, index, array) => 
+                <tr className="song" key={index} onClick={() => this.handleSongClick(song)}>{song.key} {song.title} {song.duration}</tr>
+                )
               }
-             </div>
+             </tbody>
           </div>
         </section>
           <table id="song-list">
@@ -51,13 +47,4 @@ class Album extends Component {
   }
 }
 
-export default Album;
-
-/*
-  {
-    this.state.album.songs.map( (songs, index) => 
-       <div>{songs}</div>
-     )
-  }
-*/
-            
+export default Album;      
