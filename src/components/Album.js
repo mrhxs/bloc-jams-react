@@ -162,7 +162,7 @@ class Album extends Component {
               {
                 this.state.album.songs.map((song, index, array) => (
                 <tr 
-                  className="song"
+                  className="song table"
                   key={index} 
                   onClick={() => this.handleSongClick(song)}
                   onMouseEnter={() => this.hoverOn(index + 1)}

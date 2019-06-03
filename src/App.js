@@ -10,12 +10,12 @@ function App() {
     <div className="App">
          <header>
          <nav>
-             <Link to='/'>Landing</Link>
+             <Link to='/'>Landing </Link>
              <Link to='/library'>Library</Link>
            </nav>
-           <h1>Bloc Jams</h1>
-         </header>
-         <main>
+           <h1 >Bloc Jams</h1>
+         </header >
+         <main >
             <Route exact path="/" component={Landing} />
             <Route path="/library" component={Library} />
             <Route path="/album/:slug" component={Album} />

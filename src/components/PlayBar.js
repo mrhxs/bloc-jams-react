@@ -3,7 +3,7 @@ import React from 'react';
 class PlayBar extends React.Component {
     render() {
        return (
-        <section className="player-bar">
+        <section className="player-bar media">
             <section id="buttons">
                 <button id="previous" onClick={this.props.handlePrevClick}>
                     <span className="ion-md-skip-backward"></span>
@@ -28,9 +28,9 @@ class PlayBar extends React.Component {
                     /> 
                     <div className="total-time">{this.props.duration}</div>
                 </section>
-                <section id="volume-control">
+                <section id="volume-control" >
                     <div className="icon ion-md-volume-low"></div>
-                    <input
+                    <input 
                         type="range"
                         className="seek-bar" 
                         value={this.props.currentVolume || 0}
