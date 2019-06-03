@@ -131,6 +131,16 @@ class Album extends Component {
     });
   }
 
+  formatTime(time) {
+    const seconds = Math.floor(time % 60);
+    const minutes = Math.floor(time / 60);
+    return isNaN(time)
+      ? "-:--"
+      : seconds < 10
+        ? minutes.toString() + ":0" + seconds.toString()
+        : minutes.toString() + ":" + seconds.toString();
+  }
+
   render() {
     return (
      <section className="album">
@@ -160,7 +170,7 @@ class Album extends Component {
                 >
                   {this.togglePlay(song, index)}
                   <td> {song.title} </td> 
-                  <td> {song.duration} </td>
+                  <td>{this.formatTime(song.duration)}</td>
                 </tr>
                 ))
               }
@@ -169,14 +179,15 @@ class Album extends Component {
           <PlayBar
            isPlaying={this.state.isPlaying}
            currentSong={this.state.currentSong}
-           currentTime={this.audioElement.currentTime}
-           duration={this.audioElement.duration}
+           currentTime={this.formatTime(this.audioElement.currentTime)}
+           duration={this.formatTime(this.audioElement.duration)}
            handleSongClick={() => this.handleSongClick(this.state.currentSong)}
            handlePrevClick={() => this.handlePrevClick()}
            handleNextClick={() => this.handleNextClick()}
            handleTimeChange={(e) => this.handleTimeChange(e)}
            currentVolume={this.audioElement.volume}
            handleVolumeChange={e => this.handleVolumeChange(e)}
+           formatTime={time => this.formatTime(time)}
            />
         </section>
     );
