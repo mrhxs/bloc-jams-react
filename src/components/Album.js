@@ -152,7 +152,7 @@ class Album extends Component {
              <div id="release-info">Release Info - {this.state.album.releaseInfo}</div>
              </div>
         </section>
-          <table id="song-list">
+          <table id="song-list" className= "mdl-data-table mdl-shadow--2dp">
             <colgroup>
               <col id="song-number-column" />
               <col id="song-title-column" />
@@ -162,7 +162,7 @@ class Album extends Component {
               {
                 this.state.album.songs.map((song, index, array) => (
                 <tr 
-                  className="song table"
+                  className="song"
                   key={index} 
                   onClick={() => this.handleSongClick(song)}
                   onMouseEnter={() => this.hoverOn(index + 1)}
