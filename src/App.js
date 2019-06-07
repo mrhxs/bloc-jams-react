@@ -7,15 +7,18 @@ import Album from './components/Album';
 
 function App() {
   return (
-    <div className="App">
-         <header>
-         <nav>
-             <Link to='/'>Landing </Link>
-             <Link to='/library'>Library</Link>
-           </nav>
-           <h1 >Bloc Jams</h1>
+    <div className="App mdl-layout mdl-js-layout mdl-layout--fixed-header">
+         <header className="mdl-layout__header">
+          <div className="mdl-layout__header-row">
+            <h2 className="mdl-layout-title">Bloc Jams</h2>
+            <div className="mdl-layout-spacer"></div>
+              <nav className="mdl-navigation">
+                  <Link className="mdl-navigation__link" to='/'>Landing </Link>
+                  <Link className="mdl-navigation__link"  to='/library'>Library</Link>
+                </nav>
+            </div>
          </header >
-         <main >
+         <main>
             <Route exact path="/" component={Landing} />
             <Route path="/library" component={Library} />
             <Route path="/album/:slug" component={Album} />
